@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { DataGrid, GridToolbar } from "@material-ui/data-grid";
+import { DataGrid, GridToolbar} from "@material-ui/data-grid";
 import ClearIcon from "@material-ui/icons/Clear";
 import SearchIcon from "@material-ui/icons/Search";
 import { createTheme } from "@material-ui/core/styles";
@@ -11,15 +11,6 @@ import TextField from "@material-ui/core/TextField";
 function escapeRegExp(value) {
     return value.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
   }
-
-
-const columns = [
-    {field: 'id', headerName: 'ID'},
-    {field: 'name', headerName: 'Name', width: 200},
-    {field: 'height', headerName: 'Height', width: 200},
-    {field: 'mass', headerName: 'Mass', width: 200},
-    {field: 'hair_color', headerName: 'Hair Color', width: 200},
-  ]
 
 
   const defaultTheme = createTheme();
@@ -89,7 +80,7 @@ QuickSearchToolbar.propTypes = {
     value: PropTypes.string.isRequired
   }; 
 
-const Character = ({people}) => {
+const Character = ({people, columns }) => {
 
     people.forEach((item, i) => {
         item.id = i + 1;
@@ -97,9 +88,7 @@ const Character = ({people}) => {
 
       const [searchText, setSearchText] = useState("");
       const [rows, setRows] = useState(people);
-
-      console.log(people)
-      console.log(rows)
+     
     
       const requestSearch = (searchValue) => {
         setSearchText(searchValue);

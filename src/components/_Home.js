@@ -1,46 +1,46 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Container from '@material-ui/core/Container'
 import Character from './_Character'
 
-const Home = () => {
-    const [people, setPeople] = useState([])
-    const [error, setError] = useState('')
-    const [counter, setCounter] = useState(1)
+const Home = ({people, error, counter, columns, rowName}) => {
+    // const [people, setPeople] = useState([])
+    // const [error, setError] = useState('')
+    // const [counter, setCounter] = useState(1)
 
 
-    useEffect(() => {
+    // useEffect(() => {
         
 
-        const getList = () => {
-            fetch(`https://swapi.dev/api/people/?page=${counter}&format=json`)
-            .then(resp => resp.json())
-            .then(data => {
-                setPeople(data.results);
-            })
-            .catch(() => {
-                setError("Problem z serwerem");
-            })
-        }
+    //     const getList = () => {
+    //         fetch(`https://swapi.dev/api/people/?page=${counter}&format=json`)
+    //         .then(resp => resp.json())
+    //         .then(data => {
+    //             setPeople(data.results);
+    //         })
+    //         .catch(() => {
+    //             setError("Problem z serwerem");
+    //         })
+    //     }
          
-        getList()
+    //     getList()
 
-    }, []);
+    // }, []);
     
 
 
 
     const nextPage = () => {
-        setCounter(counter => {
-            let newCounter = counter + 1
-            return setCounter(newCounter)
-        })
+        // setCounter(counter => {
+        //     let newCounter = {counter} + 1
+        //     return setCounter(newCounter)
+        // })
     }
 
     const prevPage = () => {
-        setCounter(counter => {
-            let newCounter = counter - 1
-            return setCounter(newCounter)
-        })
+        // // setCounter(counter => {
+        // //     let newCounter = counter - 1
+        // //     return setCounter(newCounter)
+        // })
     }
 
 
@@ -51,7 +51,7 @@ const Home = () => {
             <button type="button" color="info" onClick={() => nextPage()}>Next Page</button>
             <Container maxwidth='xs'>
             <h2>Characters</h2>
-            <Character people={people} />
+            <Character people={people} columns={columns}/>
             <p>{error}</p>
             </Container>
         </>
