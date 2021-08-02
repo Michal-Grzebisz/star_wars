@@ -13,7 +13,6 @@ function App() {
         <Route exact path='/'>
         </Route>
       </Switch>
-    
     </BrowserRouter>
   </>
   );
