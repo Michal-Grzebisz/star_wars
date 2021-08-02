@@ -9,6 +9,8 @@ const Home = () => {
 
 
     useEffect(() => {
+        
+
         const getList = () => {
             fetch(`https://swapi.dev/api/people/?page=${counter}&format=json`)
             .then(resp => resp.json())
@@ -21,6 +23,7 @@ const Home = () => {
         }
          
         getList()
+
     }, []);
     
 
